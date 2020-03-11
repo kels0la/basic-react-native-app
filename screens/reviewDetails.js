@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { StyleSheet, View, Text, Button, Image } from 'react-native';
+import { globalStyles, images } from '../styles/global';
+import Card from '../shared/card';
 
 export default function ReviewDetails({ route, navigation }) {
   const { body, rating, title } = route.params;
@@ -11,10 +12,19 @@ export default function ReviewDetails({ route, navigation }) {
 
   return (
     <View style={globalStyles.container}>
-      <Text>{title}</Text>
-      <Text>{body}</Text>
-      <Text>{rating}</Text>
-      <Button title='back to home screen' onPress={pressHandler} />
+      <Card>
+        <Text>{title}</Text>
+        <Text>{body}</Text>
+        <View style={styles.rating}>
+          <Text>GameZone rating: <Image source={images.ratings[rating]} /></Text>
+          
+        </View>
+        <Button title='back to home screen' onPress={pressHandler} />
+      </Card>
     </View>
   )
 };
+
+const styles = StyleSheet.create({
+
+})

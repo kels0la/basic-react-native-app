@@ -11,6 +11,7 @@ const getFonts = () => Font.loadAsync({
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false)
 
+  // I can see other things loading here (like waiting for auth)
   if (fontsLoaded) {
     return (
       <Navigator />
